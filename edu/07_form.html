@@ -8,8 +8,81 @@
 <body>
   <!-- form 태그 : 유저가 입력한 정보를 제출하기 위하여 범위를 지정하는 태그 -->
   <form action="" method="get">
-    <!-- input 태그 : 데이터를 입력 받을 수 있는 태그 -->
-    <input type="text" maxlength="5" placeholder="아이디를 입력해주세요.">
-  </form>  
+    <fieldset>
+      <legend>로그인 폼</legend>
+      <!--
+        input 태그 : 데이터를 입력 받을 수 있는 태그
+        label 태그 for속성: input 태그의 id 를 연결해주면 label 클릭시 해당 input 태그로 커서 감. id는 해당 태그를 식별하는 고유값으로 중복시 에러표시 안되어 주의!
+        minlength속성 : button 태그에서 체크한다
+        required속성 : 전송버튼시 필수입력 체크한다
+        readonly속성 : 사용자가 수정 못하고 보여주는 값
+      -->
+      <input type="text" value="미리 넣어둔 값" id="readonlyEmail" readonly>
+      <label for="account">ID: </label>
+      <input type="text" id="account" required minlength="2" maxlength="5" placeholder="아이디를 입력해주세요.">
+      <br>
+      <label for="password">PW: </label>
+      <input type="password" id="password">
+      <br><br>
+      <!--
+        textarea 태그 : 여러 줄을 입력하는 텍스트 영역
+        name속성 : 백엔드와 통신할 때 사용됨
+        cols, rows속성 : 초기크기. 글자수제한이 아님.
+      -->
+      <label for="info">기타: </label>
+      <br>
+      <textarea name="info" id="info" cols="10" rows="3" maxlength="4"></textarea>
+      <br><br>      
+      <!-- 
+        select 태그 : 드롭다운 목록
+        option 태그 : 드롭다운의 리스트
+        value속성 : 서버로 넘겨줄 값을 지정
+        selected속성 : 초기에 선택되어 보여질 항목 지정
+      -->
+      <select name="rice" id="rice">
+        <option value="bab">밥</option>
+        <option value="donggas" selected>돈까스</option>
+      </select>
+      <br>      
+    </fieldset>
+
+    <!--
+      button 태그 : 버튼을 만듦
+      submit 타입 : 자바스크립트로 전송
+      <input type="button" value=""> 버튼 가능하나 요즈음 사용 잘 안함!
+    -->
+    <button type="submit">전송</button>
+    <button type="reset">초기화</button>
+    <button type="button">버튼</button>
+    <br>
+    <!--
+      기타 input의 타입
+      type="email" : 간단히 이메일 체크하므로 자바스크립트로 별도 체크하기!
+      type="number" : 온전히 숫자만 입력받음
+      type="date" : 브라우저마다 달력 다르기 때문에 별도 만들기도 함.
+      type="checkbox" : name을 그룹화 하기 때문에 name을 일치시켜야 함.
+      type="radio" : name을 그룹화 하기 때문에 name을 일치시켜야 함.
+      type="hidden" : 화면에 보이지 않지만 서버에 같이 전송됨
+     -->    
+    <input type="email" name="email" id="email">
+    <br>
+    <input type="number" name="number" id="number" min="0">
+    <br>
+    <input type="range" name="range" id="range" min="0" max="3">
+    <br>
+    <input type="date" name="date" id="date">
+    <br>
+    <input type="checkbox" name="furuit" id="banana" value="banana">
+    <label for="banana">바나나</label>
+    <input type="checkbox" name="furuit" id="sb" value="sb" checked>
+    <label for="sb">딸기</label>
+    <br>
+    <input type="radio" name="foods" id="hamberger" value="hamberger" checked>
+    <label for="hamberger">햄버거</label>
+    <input type="radio" name="foods" id="dubbab" value="dubbab">
+    <label for="dubbab">덮밥</label>
+    
+    <input type="hidden" name="hiddenTest" value="내가 보내줄 값">
+  </form>
 </body>
 </html>
